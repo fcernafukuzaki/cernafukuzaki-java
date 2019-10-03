@@ -1,5 +1,6 @@
 package pe.com.cernafukuzaki.java.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,13 +8,10 @@ public class Util {
 	
 	public static <T extends Number> T sumarElementos(Object tipo, List<T> elementos) {
 		if (tipo.equals(Integer.TYPE)) {
-			System.out.println("Es de tipo integer.");
 			return (T) new Integer(sumarElementos(elementos.stream().mapToInt(i -> (Integer) i.intValue()).toArray()));
 		} else if (tipo.equals(Double.TYPE)) {
-			System.out.println("Es de tipo double.");
 			return (T) new Double(sumarElementos(elementos.stream().mapToDouble(i -> (Double) i.doubleValue()).toArray()));
 		} else if (tipo.equals(Long.TYPE)) {
-			System.out.println("Es de tipo long.");
 			return (T) new Long((long) sumarElementos(elementos.stream().mapToLong(i -> (Long) i.longValue()).toArray()));
 		}
 		return null;
@@ -31,4 +29,14 @@ public class Util {
 		return Arrays.stream(elementos).sum();
 	}
 	
+	public static int[] nElementosMayores(int tamanio, int... elementos) {
+		int contadorTamanio = 0;
+		List<Integer> arrayElementosMayores = new ArrayList<Integer>();
+		Arrays.sort(elementos);
+		while(contadorTamanio < tamanio) {
+			arrayElementosMayores.add(Arrays.stream(elementos).limit(elementos.length-contadorTamanio).reduce((primero, ultimo) -> ultimo).getAsInt());
+			contadorTamanio++;
+		}
+		return arrayElementosMayores.stream().mapToInt(i -> i).toArray();
+	}
 }

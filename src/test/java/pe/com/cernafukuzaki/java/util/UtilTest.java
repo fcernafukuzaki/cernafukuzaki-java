@@ -26,8 +26,10 @@ class UtilTest {
 	List<Double> listaDecimales = Arrays.stream(arregloDecimales).boxed().collect(Collectors.toList());
 	List<Long> listaLong = Arrays.stream(arregloLong).boxed().collect(Collectors.toList());
 	
+	int[] arregloEnterosDesordenado = {2,4,45,6,8,10,24};
+	
 	@Test
-	@DisplayName("Suma de arreglo de enterios")
+	@DisplayName("Suma de arreglo de enteros")
 	@Order(1)
 	void sumarElementosEnteros() {
 		assertEquals(30,Util.sumarElementos(arregloEnteros));
@@ -66,5 +68,19 @@ class UtilTest {
 	@Order(6)
 	void sumarElementosListaLong() {
 		assertEquals(1209998,Util.sumarElementos(Long.TYPE, listaLong));
+	}
+	
+	@Test
+	@DisplayName("Obtener los 2 elementos mayores de un arreglo de enteros")
+	@Order(7)
+	void obtenerLosDosPrimerosElementosMayores() {
+		assertArrayEquals(new int[] {45,24}, Util.nElementosMayores(2, arregloEnterosDesordenado));
+	}
+	
+	@Test
+	@DisplayName("Obtener los 4 elementos mayores de un arreglo de enteros")
+	@Order(8)
+	void obtenerLosCuatroPrimerosElementosMayores() {
+		assertArrayEquals(new int[] {45,24,10,8}, Util.nElementosMayores(4, arregloEnterosDesordenado));
 	}
 }
