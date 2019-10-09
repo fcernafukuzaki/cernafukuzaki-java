@@ -1,0 +1,11 @@
+@startuml
+Impresora <.. ImpresoraEpson
+
+abstract class Impresora {
+{abstract} +boolean imprimir(String texto)
+}
+
+class ImpresoraEpson {
++boolean imprimir(String texto)
+}
+@enduml
