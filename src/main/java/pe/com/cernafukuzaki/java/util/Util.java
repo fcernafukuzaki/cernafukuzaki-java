@@ -3,6 +3,7 @@ package pe.com.cernafukuzaki.java.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Util {
 	
@@ -38,5 +39,9 @@ public class Util {
 			contadorTamanio++;
 		}
 		return arrayElementosMayores.stream().mapToInt(i -> i).toArray();
+	}
+
+	public static int generarNumeroRandom(int numeroMaximo) {
+		return new Random().nextInt(numeroMaximo) + 1;
 	}
 }
