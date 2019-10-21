@@ -1,5 +1,13 @@
 package pe.com.cernafukuzaki.java.arrays;
 
+import java.util.Arrays;
+import java.util.IntSummaryStatistics;
+import java.util.List;
+import java.util.LongSummaryStatistics;
+import java.util.stream.LongStream;
+
+import pe.com.cernafukuzaki.java.util.Util;
+
 public class OperacionesMatematicas {
 	
 	public int obtenerMaximoComunDivisor(int[] arreglo) {
@@ -68,6 +76,30 @@ public class OperacionesMatematicas {
 			}
 		}
 		return mayor;
+	}
+	
+	/**
+	 * Factorial de un número entero.
+	 * <p>Retorna factorial de un número entero.</p>
+	 * 
+	 * @author Francisco Cerna Fukuzaki
+	 * @param numero Número entero.
+	 * @return Factorial.
+	 */
+	public long factorial(int numero) {
+		return LongStream.rangeClosed(1, numero).reduce(1, (long x, long y) -> x * y);
+	}
+	
+	/**
+	 * Media aritmética
+	 * <p>Retorna promedio de un arreglo de números enteros.</p>
+	 * 
+	 * @author Francisco Cerna Fukuzaki
+	 * @param numeros Números enteros.
+	 * @return Promedio.
+	 */
+	public double mediaAritmetica(int[] numeros, int decimales) {
+		return Util.redondear(Arrays.stream(numeros).mapToLong((x) -> (Integer) x).summaryStatistics().getAverage(), decimales);
 	}
 
 }

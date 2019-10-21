@@ -41,7 +41,32 @@ public class Util {
 		return arrayElementosMayores.stream().mapToInt(i -> i).toArray();
 	}
 
+	/**
+	 * Genera un número entero aleatorio.
+	 * <p>Genera un número entero aleatorio cuyo valor máximo es el parámetro numeroMaximo.</p>
+	 * 
+	 * @author Francisco Cerna Fukuzaki
+	 * @param numeroMaximo Máximo número entero que generará de forma aleatoria.
+	 * @return Número aleatorio entero.
+	 */
 	public static int generarNumeroRandom(int numeroMaximo) {
 		return new Random().nextInt(numeroMaximo) + 1;
 	}
+	
+	/**
+	 * Redondea número a cantidad de decimales
+	 * <p>Retorna el valor de un número con la cantidad de decimales indicado.</p>
+	 * 
+	 * @author Francisco Cerna Fukuzaki
+	 * @param numero Número a redondear. 
+	 * @param decimal Cantidad de decimales que tendrá el número.
+	 * @return Número con decimales.
+	 */
+	public static double redondear(double numero, int decimal) {
+		numero = numero*Math.pow(10, decimal);
+		numero = Math.round(numero);
+		numero = numero/Math.pow(10, decimal);
+		return numero;
+	}
+	
 }

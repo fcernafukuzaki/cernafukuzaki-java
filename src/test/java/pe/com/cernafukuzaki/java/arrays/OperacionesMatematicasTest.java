@@ -33,5 +33,37 @@ public class OperacionesMatematicasTest {
 	public void obtenerMinimoComunMultiplo() {
 		assertEquals(12540, operacionesMatematicas.obtenerMinimoComunMultiplo(arregloEnterosMCM));
 	}
-
+	
+	@Test
+	@DisplayName("Factorial de 3 es 6")
+	@Order(3)
+	public void cuandoFactorial3() {
+		assertEquals(6, operacionesMatematicas.factorial(3));
+	}
+	
+	@Test
+	@DisplayName("Factorial de 13 es 6227020800")
+	@Order(4)
+	public void cuandoFactorial13() {
+		assertEquals(new Long("6227020800"), operacionesMatematicas.factorial(13));
+	}
+	
+	@Test
+	@DisplayName("Media aritmética de arreglo de 3,7,9")
+	@Order(5)
+	public void cuandoArregloTieneElementosImpar() {
+		int[] arreglo = {3,7,9};
+		int decimales = 4;
+		assertEquals(6.3333, operacionesMatematicas.mediaAritmetica(arreglo, decimales));
+	}
+	
+	@Test
+	@DisplayName("Media aritmética de arreglo de 53,87,19,102")
+	@Order(6)
+	public void cuandoArregloTieneElementosPar() {
+		int[] arreglo = {53,87,19,102};
+		int decimales = 4;
+		assertEquals(65.25, operacionesMatematicas.mediaAritmetica(arreglo, decimales));
+	}
+	
 }

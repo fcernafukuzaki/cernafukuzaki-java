@@ -10,6 +10,13 @@ public class Dado {
 		this.caras = caras;
 	}
 
+	/**
+	 * Retorna valor al rodar un dado.
+	 * <p>Retorna el valor de la cara del dado.</p>
+	 * 
+	 * @author Francisco Cerna Fukuzaki
+	 * @return Número de la cara del dado.
+	 */
 	public int rodar() {
 		return Util.generarNumeroRandom(caras);
 	}
