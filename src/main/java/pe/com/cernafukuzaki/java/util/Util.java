@@ -40,6 +40,18 @@ public class Util {
 		}
 		return arrayElementosMayores.stream().mapToInt(i -> i).toArray();
 	}
+	
+	/**
+	 * Ordenar elementos de un arreglo
+	 * <p>Ordenar los elementos de un arreglo.</p>
+	 * 
+	 * @author Francisco Cerna Fukuzaki
+	 * @param elementos Elementos del arreglo.
+	 * @return Lista de elementos ordenado.
+	 */
+	public static void ordenar(int[] elementos) {
+		Arrays.sort(elementos);
+	}
 
 	/**
 	 * Genera un número entero aleatorio.
